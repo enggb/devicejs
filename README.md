@@ -20,3 +20,8 @@
 	var device = require("devicejs")();
 	console.log(device.platform);
 ```
+
+##APIs
+
+*refer to Node.js * [OS](http://nodejs.org/api/os.html#os_os) for full usage. They are just the
+same.
