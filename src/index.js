@@ -11,7 +11,7 @@
 		module.exports = function () {
 			var os = require("os");
 			var device = {
-				tmpdir: 'There is no tempdir found!',
+				tmpdir: 'There is no tmpdir found!',
 				endianness: 'There is no endianness found!',
 				hostname: 'There is no hostname found!',
 				type: 'There is no type found!',

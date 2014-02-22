@@ -43,10 +43,6 @@ describe('device', function () {
 		assert.equal(device.release, os.release ? os.release() : "There is no release found!");
 	});
 
-	it('device.uptime'.yellow + ' should equal to ' + ' os.uptime()'.yellow, function () {
-		assert.deepEqual(device.uptime, os.uptime ? os.uptime() : "There is no uptime found!");
-	});
-
 	it('device.loadavg'.yellow + ' should equal to ' + ' os.loadavg()'.yellow, function () {
 		assert.deepEqual(device.loadavg, os.loadavg ? os.loadavg() : "There is no loadavg found!");
 	});
