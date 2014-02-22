@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/  -R spec"
+    "test": "./node_modules/.bin/mocha test/  -R spec"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "connect-livereload": "~0.3.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-concurrent": "~0.4.3",
-    "console-colour": "0.0.4"
+    "console-colour": "0.0.4",
+    "mocha": "~1.17.1"
   }
 }
