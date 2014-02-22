@@ -11,7 +11,7 @@
 		module.exports = function(){
 			var os = require("os");
 			var device = {};
-			device.tmpdir = os.tmpdir();
+			device.tmpdir = os.tmpdir ? os.tmpdir() : 'There is no tempdir found!';
 			device.endianness = os.endianness();
 			device.hostname = os.hostname();
 			device.type = os.type();
