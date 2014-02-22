@@ -1,5 +1,7 @@
 ###Devicejs
 
+[![NPM](https://nodei.co/npm/devicejs.png)](https://nodei.co/npm/devicejs/)
+
 [![Build Status](https://travis-ci.org/ngot/devicejs.png?branch=master)](https://travis-ci.org/ngot/devicejs)
 
 
