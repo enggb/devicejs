@@ -8,7 +8,24 @@
 		define(definition);
 	} else if (hasExports) {
 		// Node.js Module
-		module.exports = definition();
+		module.exports = function(){
+			var os = require("os");
+			var device = {};
+			device.tmpdir = os.tmpdir();
+			device.endianness = os.endianness();
+			device.hostname = os.hostname();
+			device.type = os.type();
+			device.platform = os.platform();
+			device.arch = os.arch();
+			device.release = os.release();
+			device.uptime = os.uptime();
+			device.loadavg = os.loadavg();
+			device.totalmem = os.totalmem();
+			device.networkInterfaces = os.networkInterfaces();
+			device.EOL = os.EOL;
+			device.cpus = os.cpus();
+			return device;
+		};
 	} else {
 		// Assign to common namespaces or simply the global object (window)
 		this[name] = definition();
