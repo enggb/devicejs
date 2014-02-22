@@ -23,5 +23,5 @@
 
 ##APIs
 
-*refer to Node.js * [OS](http://nodejs.org/api/os.html#os_os) api for full usage. They are just the
+*refer to Node.js* [OS](http://nodejs.org/api/os.html#os_os) api for full usage. They are just the
 same.
