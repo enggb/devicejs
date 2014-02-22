@@ -8,22 +8,34 @@
 		define(definition);
 	} else if (hasExports) {
 		// Node.js Module
-		module.exports = function(){
+		module.exports = function () {
 			var os = require("os");
-			var device = {};
-			device.tmpdir = os.tmpdir ? os.tmpdir() : 'There is no tempdir found!';
-			device.endianness = os.endianness();
-			device.hostname = os.hostname();
-			device.type = os.type();
-			device.platform = os.platform();
-			device.arch = os.arch();
-			device.release = os.release();
-			device.uptime = os.uptime();
-			device.loadavg = os.loadavg();
-			device.totalmem = os.totalmem();
-			device.networkInterfaces = os.networkInterfaces();
-			device.EOL = os.EOL;
-			device.cpus = os.cpus();
+			var device = {
+				tmpdir: 'There is no tempdir found!',
+				endianness: 'There is no endianness found!',
+				hostname: 'There is no hostname found!',
+				type: 'There is no type found!',
+				platform: 'There is no platform found!',
+				arch: 'There is no arch found!',
+				release: 'There is no release found!',
+				uptime: 'There is no uptime found!',
+				loadavg: 'There is no loadavg found!',
+				totalmem: 'There is no totalmem found!',
+				networkInterfaces: 'There is no networkInterfaces found!',
+				EOL: 'There is no EOL found!',
+				cpus: 'There is no cpus found!',
+				getNetworkInterfaces: 'There is no getNetworkInterfaces found!',
+				tmpDir: 'There is no tmpDir found!'
+			};
+
+			for (var v in os) {
+				if (typeof os[v] == 'function') {
+					device[v] = os[v]();
+				} else {
+					device[v] = os[v];
+				}
+			}
+
 			return device;
 		};
 	} else {
