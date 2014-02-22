@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/ngot/devicejs.git"
   },
-  "keywords": [],
+  "keywords": ["device", "devicejs"],
   "author": "ngot",
   "files": [
     "src/index.js",
