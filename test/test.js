@@ -1,4 +1,4 @@
-var device = require("../src")();
+var device = require("../src/device");
 var os = require("os");
 var assert = require("assert");
 require('console-colour')(String);

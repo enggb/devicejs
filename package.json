@@ -7,13 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/  -R spec"
+    "test": "make test-run"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ngot/devicejs.git"
   },
-  "keywords": ["device", "devicejs"],
+  "keywords": [
+    "device",
+    "devicejs"
+  ],
   "author": "ngot",
   "files": [
     "src/index.js",
@@ -38,6 +41,12 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-concurrent": "~0.4.3",
     "console-colour": "0.0.4",
-    "mocha": "~1.17.1"
+	  "karma-phantomjs-launcher": "~0.1.2",
+	  "karma-requirejs": "~0.2.1",
+    "mocha": "~1.17.1",
+    "karma": "~0.10.9",
+    "karma-mocha": "~0.1.1",
+    "chai": "~1.9.0",
+    "karma-chai": "~0.1.0"
   }
 }
