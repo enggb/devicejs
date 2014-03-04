@@ -1,9 +1,10 @@
 define([ "device" ], function (d) {
 	describe("device", function () {
 
-		var device;;
+		var device;
 		before(function(){
-			device = d.newDevice();
+			device = d.newDevice(navigator, window);
+			console.log(device);
 		});
 
 		after(function(){
