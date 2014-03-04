@@ -1,4 +1,4 @@
-var device = require("../src")();
+var device = require("../src/device");
 
 var tmpdir = device.tmpdir;
 console.log("tmpdir:",tmpdir);

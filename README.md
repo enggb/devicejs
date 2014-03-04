@@ -19,7 +19,7 @@
 ##usage
 
 ```
-	var device = require("devicejs")();
+	var device = require("devicejs");
 	console.log(device.platform);
 ```
 
