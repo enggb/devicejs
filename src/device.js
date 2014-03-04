@@ -44,10 +44,8 @@
 	}
 })('device', function () {
 
-	function device() {
-		var browser = {},
-			n = navigator,
-			w = window;
+	function device(n, w) {
+		var browser = {};
 
 		var versionSearchString;
 		var idx;
@@ -269,7 +267,7 @@
 		return browser;
 	}
 
-	var d = device();
+	var d = device(navigator, window);
 	d.newDevice = device;
 	return d;
 });
