@@ -44,12 +44,12 @@
 	}
 })('device', function () {
 
-	function device(n, w) {
+	function device(w) {
 		var browser = {};
 
 		var versionSearchString;
 		var idx;
-		var dataString = n.userAgent;
+		var dataString = w.navigator.userAgent;
 		var dataBrowser = [
 			{
 				string: dataString,
@@ -58,17 +58,17 @@
 				identity: "OmniWeb"
 			},
 			{
-				string: n.vendor,
+				string: w.navigator.vendor,
 				subString: new RegExp("iCab", 'i'),
 				identity: "iCab"
 			},
 			{
-				string: n.vendor,
+				string: w.navigator.vendor,
 				subString: new RegExp("KDE", 'i'),
 				identity: "Konqueror"
 			},
 			{
-				string: n.vendor,
+				string: w.navigator.vendor,
 				subString: new RegExp("Camino", 'i'),
 				identity: "Camino"
 			},
@@ -107,12 +107,12 @@
 				identity: "Xbox"
 			},
 			{
-				string: n.platform,
+				string: w.navigator.platform,
 				subString: new RegExp("Win", 'i'),
 				identity: "Windows"
 			},
 			{
-				string: n.platform,
+				string: w.navigator.platform,
 				subString: new RegExp("Mac", 'i'),
 				identity: "Mac"
 			},
@@ -147,7 +147,7 @@
 				identity: "webOS"
 			},
 			{
-				string: n.platform,
+				string: w.navigator.platform,
 				subString: new RegExp("Linux", 'i'),
 				identity: "Linux"
 			}
@@ -177,7 +177,7 @@
 			browser = {
 				engine: "trident",
 				agent: "msie",
-				ver: w.XMLHttpRequest ? (document.querySelector ? (document.addEventListener ? (w.atob ? (w.execScript ? 10 : 11) : 9) : 8) : 7) : 6
+				ver: w.XMLHttpRequest ? (w.document.querySelector ? (w.document.addEventListener ? (w.atob ? (w.execScript ? 10 : 11) : 9) : 8) : 7) : 6
 			};
 		} else if ("opera" in w) {
 			var index;
@@ -188,13 +188,13 @@
 					parseFloat(dataString.substring(index + 8)) :
 					parseFloat(dataString.substring(dataString.indexOf("Opera") + 6))
 			};
-		} else if ("MozBoxSizing" in document.documentElement.style) {
+		} else if ("MozBoxSizing" in w.document.documentElement.style) {
 			browser = {
 				engine: "gecko",
 				agent: "firefox",
 				ver: parseFloat(dataString.substring(dataString.indexOf("Firefox") + 8))
 			};
-		} else if ("WebkitTransform" in document.documentElement.style) {
+		} else if ("WebkitTransform" in w.document.documentElement.style) {
 			browser = {
 				engine: "webkit",
 				agent: "webkit",
@@ -221,11 +221,11 @@
 		} else {
 			browser = {
 				agent: searchString(dataBrowser),
-				ver: searchVersion(dataString) || searchVersion(n.appVersion) || 0
+				ver: searchVersion(dataString) || searchVersion(w.navigator.appVersion) || 0
 			};
 		}
 
-		browser.cordova = ("cordova" in window);
+		browser.cordova = ("cordova" in w);
 		browser.os = (searchString(dataOS) || "an unknown OS");
 		browser[browser.os] = true;
 		browser[browser.engine] = true;
@@ -237,7 +237,7 @@
 				browser.ver = parseFloat(dataString.substring(dataString
 					.indexOf("OS") + 3));
 
-				if (navigator.standalone)
+				if (w.navigator.standalone)
 					browser.webApp = true;
 			}
 		}
@@ -245,29 +245,29 @@
 		if (browser.os == 'Windows' || browser.os == 'Mac' || browser.os == 'Linux')
 			browser.desktop = true;
 
-		var rate = screen.width / document.documentElement.clientWidth;
-		if (!browser.desktop && (screen.width / rate < 600 || screen.height / rate < 600))
+		var rate = w.screen.width / w.document.documentElement.clientWidth;
+		if (!browser.desktop && (w.screen.width / rate < 600 || w.screen.height / rate < 600))
 			browser.phone = true;
 
 		browser[browser.agent] = true;
 		browser[browser.agent + browser.ver] = true;
 
 		var vendor = browser.webkit ? 'webkit' : browser.gecko ? 'Moz' : browser.presto ? 'O' : (browser.trident && browser.ver > 9) ? 'ms' : '';
-		if ((vendor + 'Transform') in document.documentElement.style)
+		if ((vendor + 'Transform') in w.document.documentElement.style)
 			browser.hasTransform = true;
 
-		if (browser.webkit && 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix())
+		if (browser.webkit && 'WebKitCSSMatrix' in w && 'm11' in new WebKitCSSMatrix())
 			browser.has3d = true;
 
-		if (window.devicePixelRatio > 1)
+		if (w.devicePixelRatio > 1)
 			browser.retina = true;
 
-		browser.touch = ("createTouch" in document);
+		browser.touch = ("createTouch" in w.document);
 
 		return browser;
 	}
 
-	var d = device(navigator, window);
+	var d = device(window);
 	d.newDevice = device;
 	return d;
 });
