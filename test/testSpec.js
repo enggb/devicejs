@@ -1,4 +1,5 @@
 define([ "device" ], function (d) {
+
 	describe("device", function () {
 
 		var device;
@@ -11,9 +12,22 @@ define([ "device" ], function (d) {
 
 		});
 
+
+
+//？？？
+
+
+
+
+
+
 		it("", function(){
+
 
 		});
 
 	});
+
 });
+
+
