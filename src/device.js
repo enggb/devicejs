@@ -1,5 +1,4 @@
 ;(function (name, definition) {
-
 	var hasDefine = typeof define === 'function';
 	var hasExports = typeof module !== 'undefined' && module.exports;
 
@@ -8,7 +7,7 @@
 		define(definition);
 	} else if (hasExports) {
 		// Node.js Module
-		function devices() {
+		module.exports = (function () {
 			var os = require("os");
 			var device = {
 				tmpdir: 'There is no tmpdir found!',
@@ -29,15 +28,15 @@
 			};
 
 			for (var v in os) {
-				if (typeof os[v] == 'function') {
-					device[v] = os[v]();
-				} else {
-					device[v] = os[v];
-				}
+				if(os.hasOwnProperty(v))
+					if (typeof os[v] == 'function') {
+						device[v] = os[v]();
+					} else {
+						device[v] = os[v];
+					}
 			}
 			return device;
-		};
-		module.exports = devices();
+		})();
 	} else {
 		// Assign to common namespaces or simply the global object (window)
 		this[name] = definition();
