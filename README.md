@@ -15,6 +15,10 @@
 	$ npm install devicejs
 ```
 
+*Install with bower:*
+```
+	$ bower install device
+```
 
 ##usage
 
