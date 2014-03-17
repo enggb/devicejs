@@ -1,6 +1,6 @@
 {
   "name": "devicejs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Devicejs is a runtime detecting tool",
   "main": "src/index.js",
   "directories": {
