@@ -1,4 +1,5 @@
 ;(function (name, definition) {
+	"use strict";
 	var hasDefine = typeof define === 'function';
 	var hasExports = typeof module !== 'undefined' && module.exports;
 
@@ -26,14 +27,14 @@
 				getNetworkInterfaces: 'There is no getNetworkInterfaces found!',
 				tmpDir: 'There is no tmpDir found!'
 			};
-
 			for (var v in os) {
-				if(os.hasOwnProperty(v))
-					if (typeof os[v] == 'function') {
+				if (({}).hasOwnProperty.call(os, v)) {
+					if (typeof os[v] === 'function') {
 						device[v] = os[v]();
 					} else {
 						device[v] = os[v];
 					}
+				}
 			}
 			return device;
 		})();
@@ -42,7 +43,7 @@
 		this[name] = definition();
 	}
 })('device', function () {
-
+	"use strict";
 	function device(w) {
 		var browser = {};
 
@@ -168,7 +169,9 @@
 
 		function searchVersion(dataString) {
 			var index = dataString.indexOf(versionSearchString);
-			if (index === -1) return '';
+			if (index === -1) {
+				return '';
+			}
 			return parseFloat(dataString.substring(index + versionSearchString.length + 1));
 		}
 
