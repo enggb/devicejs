@@ -1,4 +1,4 @@
-###Devicejs
+### Devicejs
 
 [![NPM](https://nodei.co/npm/devicejs.png)](https://nodei.co/npm/devicejs/)
 
@@ -6,9 +6,9 @@
 
 
 
-######Devicejs is a library with which you can easily detect the client environment, convenient the web development.
+###### Devicejs is a library with which you can easily detect the client environment, convenient the web development.
 
-##Installation
+## Installation
 
 *Install with npm:*
 ```
@@ -20,14 +20,14 @@
 	$ bower install device
 ```
 
-##usage
+## usage
 
 ```
 	var device = require("devicejs");
 	console.log(device.platform);
 ```
 
-##APIs
+## APIs
 
 *refer to Node.js* [OS](http://nodejs.org/api/os.html#os_os) api for full usage. They are just the
 same.
